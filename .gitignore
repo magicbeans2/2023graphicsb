@@ -14,7 +14,7 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
+#*.dll
 
 # Fortran module files
 *.mod
@@ -23,8 +23,9 @@
 # Compiled Static libraries
 *.lai
 *.la
-*.a
-*.lib
+#下面這兩個在freeglut跟opencv都會用到，就放行吧
+#*.a
+#*.lib
 
 # Executables
 *.exe
