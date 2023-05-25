@@ -10,7 +10,8 @@ int show[4]={1,1,1,1};
 int ID=2;
 
 
-float teapotX=0,teapotY=0,angle=0;
+float teapotX=0,teapotY=0;
+float angle[20]={};
 FILE * fout =NULL;
 FILE * fin =NULL;
 void keyboard(unsigned char key,int x,int y){
@@ -43,9 +44,9 @@ void display()
         if(show[1])glmDraw(body,GLM_MATERIAL);
 
         glPushMatrix();
-        //glTranslatef(teapotX,teapotY,0);
+       //glTranslatef(teapotX,teapotY,0);
         glTranslatef(-1.360000,+0.360000,0);
-        glRotatef(angle,0,0,1);
+        glRotatef(angle[2],0,0,1);
         glTranslatef(1.360000,-0.360000,0);
 
         if(ID==2)glColor3f(1,0,0);
@@ -54,7 +55,7 @@ void display()
         glPushMatrix();
          //glTranslatef(teapotX,teapotY,0);
         glTranslatef(-1.959999,+0.080000,0);
-        glRotatef(angle,0,0,1);
+        glRotatef(angle[3],0,0,1);
         glTranslatef(1.959999,-0.080000,0);
         if(ID==3)glColor3f(1,0,0);
         else glColor3f(1,1,1);
@@ -78,7 +79,7 @@ void motion(int x,int y){
     teapotX+=(x-oldX)/150.0;
     teapotY-=(y-oldY)/150.0;
     printf("glTranslatef(%f,%f,0);\n",teapotX,teapotY);
-    angle+=x-oldX;
+    angle[ID]+=x-oldX;
     oldX=x;
     oldY=y;
     glutPostRedisplay();
